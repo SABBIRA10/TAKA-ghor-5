@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বিজ্ঞাপন দেখুন</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        
+        p {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .ad-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px dashed #6c757d;
+        }
+        
+        .ad-label {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .ad-button {
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ad-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .ad-button:active {
+            transform: translateY(0);
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+            color: #495057;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            margin-top: 25px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>বিজ্ঞাপন দেখুন</h1>
+        <p>বিজ্ঞাপন দেখে আমাদের সাপোর্ট করুন। নিচের যেকোনো একটি বাটনে ক্লিক করে বিজ্ঞাপন দেখুন।</p>
+        
+        <div class="ad-container">
+            <div class="ad-label">বিজ্ঞাপন এখানে প্রদর্শিত হবে</div>
+            <div id="ad-display"></div>
+        </div>
+        
+        <div class="buttons">
+            <button class="ad-button" onclick="showAd()">বিজ্ঞাপন দেখুন</button>
+            <button class="ad-button" onclick="showAd()">বিজ্ঞাপন দেখুন</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>ব্যবহার নির্দেশিকা:</h3>
+            <ol>
+                <li>উপরে থাকা যেকোনো একটি "বিজ্ঞাপন দেখুন" বাটনে ক্লিক করুন</li>
+                <li>বিজ্ঞাপন প্রদর্শিত হবে</li>
+                <li>বিজ্ঞাপন দেখার পর আপনার রিওয়ার্ড পাবেন</li>
+            </ol>
+        </div>
+        
+        <footer>
+            এই অ্যাপটি টেলিগ্রাম মিনি অ্যাপ হিসেবে ব্যবহারের জন্য তৈরি করা হয়েছে
+        </footer>
+    </div>
+
+    <!-- বিজ্ঞাপন স্ক্রিপ্ট -->
+    <script src="https://ad.gigapub.tech/script?id=1715"></script>
+    
+    <script>
+        // বিজ্ঞাপন প্রদর্শন ফাংশন
+        function showAd() {
+            window.showGiga()
+                .then(() => {
+                    // রিওয়ার্ড লজিক এখানে
+                    alert('ধন্যবাদ! বিজ্ঞাপন দেখার জন্য আপনাকে রিওয়ার্ড দেওয়া হয়েছে।');
+                })
+                .catch(e => {
+                    // ত্রুটি হ্যান্ডলিং
+                    console.error('ত্রুটি:', e);
+                    alert('বিজ্ঞাপন প্রদর্শনে সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।');
+                });
+        }
+        
+        // পেজ লোড হলে কিছু প্রাথমিক তথ্য প্রদর্শন
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('বিজ্ঞাপন অ্যাপ্লিকেশন লোড হয়েছে');
+        });
+    </script>
+</body>
+</html>

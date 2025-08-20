@@ -1,1 +1,0 @@
-# TAKA-ghor-5
